@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/auction-kata/static/css/main.ab8379bc.css",
+    "main.js": "/auction-kata/static/js/main.ac9d5c44.js",
+    "index.html": "/auction-kata/index.html",
+    "main.ab8379bc.css.map": "/auction-kata/static/css/main.ab8379bc.css.map",
+    "main.ac9d5c44.js.map": "/auction-kata/static/js/main.ac9d5c44.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ab8379bc.css",
+    "static/js/main.ac9d5c44.js"
+  ]
+}
