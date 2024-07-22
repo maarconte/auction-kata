@@ -44,9 +44,11 @@ npm install
 
 3. Run the application:
 
-   ```bash
-   npm start
-   ```
+---
+
+```bash
+npm start
+```
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
