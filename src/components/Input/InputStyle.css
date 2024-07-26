@@ -1,0 +1,27 @@
+.Input {
+  position: relative;
+  .icon {
+    position: absolute;
+    top: 0.5rem;
+    color: var(--primary-color);
+    padding: 0 1rem;
+    border-right: 1px solid var(--primary-color);
+  }
+
+  input {
+    line-height: 1.5rem;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.375rem 0.375rem 3.5rem;
+    border-radius: 0.375rem;
+    width: 100%;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    background-color: var(--light-color);
+  }
+}
+
+label {
+  line-height: 1.5rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+}

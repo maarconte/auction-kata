@@ -545,55 +545,6 @@ video {
   --tw-contain-style:  ;
 }
 
-.container {
-  width: 100%;
-  padding-right: 1rem;
-  padding-left: 1rem;
-}
-
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-    padding-right: 2rem;
-    padding-left: 2rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-    padding-right: 4rem;
-    padding-left: 4rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-    padding-right: 5rem;
-    padding-left: 5rem;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
-    padding-right: 6rem;
-    padding-left: 6rem;
-  }
-}
-
-.mx-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -606,8 +557,20 @@ video {
   display: flex;
 }
 
+.w-16 {
+  width: 4rem;
+}
+
 .flex-col {
   flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .gap-4 {
@@ -619,46 +582,31 @@ video {
 }
 
 :root {
-  --primary-color: #440D60;
-  --secondary-color: #6D73E1;
+  --primary-color: #440d60;
+  --secondary-color: #6d73e1;
   --danger-color: #e53e3e;
   --success-color: #38a169;
   --warning-color: #d97706;
   --info-color: #3182ce;
   --dark-color: #2d3748;
-  --light-color: #F5F4F2;
+  --light-color: #f5f4f2;
   --gray-light-color: #e2eaf0;
   --gray-color: #718096;
 }
 
 body {
   background-color: var(--light-color);
-  font-family: 'Syne', sans-serif;
+  font-family: "Syne", sans-serif;
 }
 
-input {
-  line-height: 1.5rem;
-  font-size: 0.875rem;
-  padding: .375rem 5rem .375rem 1.75rem;
-  border-radius: 0.375rem;
-  width: 100%;
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
   color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  background-color: var(--light-color);
-}
-
-input[type="number"] {
-  padding: .375rem;
-}
-
-label {
-  line-height: 1.5rem;
-  font-weight: 500;
-  font-size: 0.875rem;
+  font-weight: 700;
 }
 
 .btn {
-  padding: .375rem 1rem;
+  padding: 0.375rem 1rem;
   border-radius: 0.375rem;
   background-color: var(--primary-color);
   color: #fff;
@@ -674,4 +622,11 @@ label {
     color: var(--gray-color);
   }
 }
+
+.Home {
+  height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
 

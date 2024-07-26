@@ -2,11 +2,13 @@ import "./AuctionFormStyle.css";
 
 import { AuctionResultType, Bidder } from "../../types";
 import { Field, Form, Formik } from "formik";
+import Input, { InputType } from "../Input/Input";
 import React, { useState } from "react";
 
 import AuctionBidders from "../AuctionBidders/AuctionBidders";
 import AuctionResult from "../AuctionResult/AuctionResult";
 import { auctionSchema } from "./validationSchema";
+import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 
 const AuctionForm: React.FC = () => {
   const [result, setResult] = useState<AuctionResultType | null>(null);
@@ -18,30 +20,39 @@ const AuctionForm: React.FC = () => {
     bidders: bidders,
     reservePrice: 0,
   };
+
+  const restartAuction = () => {
+    window.location.reload();
+  };
+
   const handleAddBidder = () => {
     setBidders([...bidders, { name: "", bids: [] }]);
   };
   const onSubmit = (values: { bidders: Bidder[]; reservePrice: number }) => {
-    const highestBidAboveReserve = values.bidders.reduce(
-      (highestBid, currentBidder) => {
-        const bidderHighestBid = Math.max(...currentBidder.bids); // Find highest bid for this bidder
-        return bidderHighestBid > values.reservePrice
-          ? Math.max(highestBid, bidderHighestBid)
-          : highestBid;
-      },
-      -Infinity
-    ); // Initialize with negative infinity to ensure any positive bid wins
+    // Sort bidders by their highest bid in descending order
+    const sortedBidders = [...values.bidders].sort((a, b) => {
+      const aHighestBid = Math.max(...a.bids);
+      const bHighestBid = Math.max(...b.bids);
+      return bHighestBid - aHighestBid;
+    });
 
-    // Find the winning bidder based on the highest bid
-    const winningBidder = values.bidders.find(
-      (bidder) => Math.max(...bidder.bids) === highestBidAboveReserve
-    );
+    // Sort bids within each bidder from highest to lowest
+    const sortedBiddersWithSortedBids = sortedBidders.map((bidder) => ({
+      ...bidder,
+      bids: bidder.bids.sort((a, b) => b - a),
+    }));
 
-    // Determine the winning price
-    const winningPrice =
-      highestBidAboveReserve !== -Infinity
-        ? highestBidAboveReserve
+    // Determine the winning bidder (the first in the sorted array)
+    const winningBidder = sortedBiddersWithSortedBids[0];
+
+    // Determine the second-highest bid (the second in the sorted array)
+    const secondHighestBid =
+      sortedBiddersWithSortedBids[1]?.bids[0] > values.reservePrice
+        ? sortedBiddersWithSortedBids[1]?.bids[0]
         : values.reservePrice;
+
+    // Determine the winning price (second highest bid)
+    const winningPrice = secondHighestBid;
 
     setResult({
       winningBidder: winningBidder?.name,
@@ -50,7 +61,7 @@ const AuctionForm: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="AuctionForm">
       <Formik
         initialValues={initialValues}
         validationSchema={auctionSchema}
@@ -67,15 +78,14 @@ const AuctionForm: React.FC = () => {
           isSubmitting,
         }) => (
           <Form onSubmit={handleSubmit}>
-            <h1 className="mb-4">Auction Kata</h1>
-            <label htmlFor="reservePrice">Reserve Price:</label>
-            <Field
+            <Input
+              label="Reserve Price"
               id="reservePrice"
-              name="reservePrice"
-              type="number"
+              type={InputType.NUMBER}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="mb-4"
+              icon={faDollarSign}
+              name="reservePrice"
             />
             <AuctionBidders
               bidders={bidders}
@@ -102,7 +112,9 @@ const AuctionForm: React.FC = () => {
           </Form>
         )}
       </Formik>
-      {result && <AuctionResult result={result} />}
+      {result && (
+        <AuctionResult result={result} restartAuction={restartAuction} />
+      )}
     </div>
   );
 };

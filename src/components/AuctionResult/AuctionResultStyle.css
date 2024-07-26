@@ -1,27 +1,38 @@
 .AuctionResult {
-	padding: 1.5rem;
-	position: relative;
-	display: grid;
-	place-items: center;
-	width: 500px;
-	margin: 2rem auto;
-	.AuctionResult__winningBider {
-		font-size: 1.5rem;
-		font-weight: 700;
-		color: var(--primary-color);
+  .content {
+    padding: 1.5rem;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 500px;
+    margin: 2rem auto;
 
-	}
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      height: 1rem;
+      background: linear-gradient(
+        90deg,
+        #c61ee7 0%,
+        #ee29b6 25.5%,
+        #ff5a85 50%,
+        #f89164 75%,
+        #ebd4a8 100%
+      );
+    }
+    .winningBider {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+  }
 
-		&:after {
-			content: "";
-			position: absolute;
-			display: block;
-			width: 100%;
-			bottom: 0;
-			left: 0;
-			height: 1rem;
-			background: linear-gradient(90deg, #C61EE7 0%, #EE29B6 25.5%, #FF5A85 50%, #F89164 75%, #EBD4A8 100%);
-		}
+  .btn {
+    margin: 0 auto;
+    display: block;
+  }
 }
-
-

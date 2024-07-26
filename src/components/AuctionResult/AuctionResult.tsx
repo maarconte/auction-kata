@@ -5,16 +5,20 @@ import React from "react";
 
 type Props = {
   result: AuctionResultType;
+  restartAuction: () => void;
 };
 
 const AuctionResult = (props: Props) => {
   return (
     <div className="AuctionResult">
-      <p>Winning Bidder:</p>
-      <h2 className="AuctionResult__winningBider">
-        {props.result.winningBidder}
-      </h2>
-      <h3 className="AuctionResult__price">{props.result.winningPrice} $</h3>
+      <div className="content">
+        <p>Winning Bidder:</p>
+        <h2 className="winningBider">{props.result.winningBidder}</h2>
+        <h3 className="price">{props.result.winningPrice} $</h3>
+      </div>
+      <button className="btn" onClick={() => props.restartAuction()}>
+        Restart
+      </button>
     </div>
   );
 };

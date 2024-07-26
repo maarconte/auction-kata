@@ -1,6 +1,8 @@
 import "./AuctionBiddersStyle.css";
 
 import { ErrorMessage, Field } from "formik";
+import Input, { InputType } from "../Input/Input";
+import { faDollarSign, faUser } from "@fortawesome/free-solid-svg-icons";
 
 import { Bidder } from "../../types";
 import React from "react";
@@ -36,13 +38,15 @@ export default function AuctionBidders({
             className="AuctionBidders__list__item mb-4 flex flex-col gap-4"
           >
             <div>
-              <label htmlFor={`bidderName-${index}`}>Bidder Name:</label>
-              <Field
+              <Input
+                label="Bidder Name"
+                type={InputType.TEXT}
+                icon={faUser}
                 id={`bidderName-${index}`}
                 name={`bidders[${index}].name`}
-                type="text"
                 onChange={handleChange}
                 onBlur={handleBlur}
+                className="mb-4"
               />
               <ErrorMessage name={`bidders[${index}].name`} />
             </div>
@@ -51,9 +55,11 @@ export default function AuctionBidders({
               {bidder?.bids.length > 0 ? (
                 bidder.bids.map((_, bidIndex) => (
                   <div key={bidIndex} className="mb-4">
-                    <Field
+                    <Input
                       name={`bidders[${index}].bids[${bidIndex}]`}
-                      type="number"
+                      type={InputType.NUMBER}
+                      icon={faDollarSign}
+                      onChange={handleChange}
                     />
                   </div>
                 ))
