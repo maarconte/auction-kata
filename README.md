@@ -31,6 +31,12 @@ The buyer E wins the auction at the price of 130 euros.
 
 ---
 
+### Requirements
+
+- Node.js
+- npm
+- npx
+
 ### Installation
 
 1. Clone this repository.
@@ -66,3 +72,7 @@ npx tailwindcss -i ./src/App.css -o ./src/output.css --watch
 - Formik (for form handling)
 - Yup (for form validation)
 - Tailwind CSS (optional, for styling)
+
+### Demo
+
+[https://maarconte.github.io/auction-kata/](https://maarconte.github.io/auction-kata/)
