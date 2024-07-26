@@ -1,13 +1,14 @@
 {
   "files": {
-    "main.css": "/auction-kata/static/css/main.ab8379bc.css",
-    "main.js": "/auction-kata/static/js/main.30ef775c.js",
+    "main.css": "/auction-kata/static/css/main.bc07328c.css",
+    "main.js": "/auction-kata/static/js/main.8b4c6c27.js",
+    "static/media/auction.svg": "/auction-kata/static/media/auction.b742525308234631fe9d8afbae50c959.svg",
     "index.html": "/auction-kata/index.html",
-    "main.ab8379bc.css.map": "/auction-kata/static/css/main.ab8379bc.css.map",
-    "main.30ef775c.js.map": "/auction-kata/static/js/main.30ef775c.js.map"
+    "main.bc07328c.css.map": "/auction-kata/static/css/main.bc07328c.css.map",
+    "main.8b4c6c27.js.map": "/auction-kata/static/js/main.8b4c6c27.js.map"
   },
   "entrypoints": [
-    "static/css/main.ab8379bc.css",
-    "static/js/main.30ef775c.js"
+    "static/css/main.bc07328c.css",
+    "static/js/main.8b4c6c27.js"
   ]
 }
