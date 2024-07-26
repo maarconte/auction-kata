@@ -73,6 +73,7 @@ npx tailwindcss -i ./src/App.css -o ./src/output.css --watch
 - Yup (for form validation)
 - Tailwind CSS (optional, for styling)
 
-### Demo
+### GitHub Pages
 
-[https://maarconte.github.io/auction-kata/](https://maarconte.github.io/auction-kata/)
+[Demo](https://maarconte.github.io/auction-kata/)
+[Github code](https://github.com/maarconte/auction-kata)
